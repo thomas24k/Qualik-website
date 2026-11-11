@@ -2,6 +2,8 @@
 (function () {
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var IT = document.documentElement.lang === 'it';
+  var L = function (en, it) { return IT ? it : en; };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
@@ -60,13 +62,24 @@
         { t: 'Dancer arm sensor out of position', src: 'Past repair · 21 Jan · Plant 3', steps: ['Stop the wrapper and release film tension.', 'Check the dancer sensor bracket for play.', 'Move the sensor back to the reference mark.', 'Restart and check tension through one reel.'], ssrc: 'Drawing M-117, sheet 1', action: 'Repositioned dancer arm sensor', parts: 'None' },
         { t: 'Film brake pad worn', src: 'Manual, section 9.2, page 201', steps: ['Stop the wrapper and remove the reel.', 'Measure the brake pad thickness.', 'Replace the pad if under the limit.', 'Refit the reel and set the brake pressure.'], ssrc: 'Manual, section 9.2, page 201', action: 'Replaced film brake pad', parts: 'Brake pad BP-12 × 1' } ] }
     ];
+    if (IT) ALARMS = [
+      { code: 'F3041', name: 'Sovratemperatura azionamento', where: 'Riempitrice 2 · Linea 4', when: '03:07', causes: [
+        { t: 'Ventola di raffreddamento ostruita dalla polvere di prodotto', src: 'Intervento passato · 14 mar · Stabilimento 2', steps: ['Fermare la riempitrice e mettere in sicurezza il quadro azionamenti.', 'Togliere la protezione, pulire la ventola e il filtro.', 'Verificare che la temperatura del quadro sia rientrata.', 'Resettare l\'azionamento e ripartire a velocità ridotta.'], ssrc: 'Manuale, sezione 7.3, pagina 142', action: 'Pulita la ventola, sostituito il filtro del quadro', parts: 'Filtro quadro FK-220 × 1' },
+        { t: 'Freno dell\'asse 2 non si sblocca', src: 'Schema E-204, foglio 3', steps: ['Verificare i 24 V sul morsetto freno X12.', 'Misurare la resistenza della bobina del freno.', 'Sostituire il relè K7 se la bobina è in tolleranza.', 'Muovere l\'asse a impulsi e leggere la corrente motore.'], ssrc: 'Schema E-204, foglio 3', action: 'Sostituito il relè freno K7', parts: 'Relè K7 × 1' } ] },
+      { code: 'A217', name: 'Vuoto sotto soglia', where: 'Pick-and-place · Linea 1', when: '02:41', causes: [
+        { t: 'Ventose della pinza usurate', src: 'Intervento passato · 2 set · Stabilimento 1', steps: ['Fermare l\'unità in posizione di presa.', 'Controllare le quattro ventose per crepe.', 'Sostituire le ventose usurate e verificare le guarnizioni.', 'Eseguire dieci cicli e leggere il livello di vuoto.'], ssrc: 'Manuale, sezione 4.1, pagina 58', action: 'Sostituite quattro ventose', parts: 'Ventosa SC-30 × 4' },
+        { t: 'Filtro del vuoto intasato', src: 'Manuale, sezione 4.4, pagina 63', steps: ['Escludere l\'aria compressa all\'eiettore.', 'Smontare e pulire il filtro del vuoto.', 'Rimontare il filtro e riaprire l\'aria.', 'Verificare il livello di vuoto sul vacuometro.'], ssrc: 'Manuale, sezione 4.4, pagina 63', action: 'Pulito il filtro del vuoto', parts: 'Nessuno' } ] },
+      { code: 'E118', name: 'Tensione film fuori range', where: 'Avvolgitrice 1 · Linea 4', when: 'Ieri', causes: [
+        { t: 'Sensore del ballerino fuori posizione', src: 'Intervento passato · 21 gen · Stabilimento 3', steps: ['Fermare l\'avvolgitrice e rilasciare la tensione del film.', 'Controllare il gioco della staffa del sensore.', 'Riportare il sensore sul segno di riferimento.', 'Ripartire e controllare la tensione per una bobina.'], ssrc: 'Schema M-117, foglio 1', action: 'Riposizionato il sensore del ballerino', parts: 'Nessuno' },
+        { t: 'Pattino freno film usurato', src: 'Manuale, sezione 9.2, pagina 201', steps: ['Fermare l\'avvolgitrice e togliere la bobina.', 'Misurare lo spessore del pattino.', 'Sostituirlo se sotto il limite.', 'Rimontare la bobina e regolare la pressione del freno.'], ssrc: 'Manuale, sezione 9.2, pagina 201', action: 'Sostituito il pattino freno film', parts: 'Pattino BP-12 × 1' } ] }
+    ];
     var ai = 0, ci = 0;
     var dd = function (k) { return $('[data-k="' + k + '"]', con); };
     var status = $('#c-status'), confirmBtn = $('#c-confirm');
     function setStatus(done) {
       status.className = 'pill ' + (done ? 'ok' : 'warn');
-      status.innerHTML = '<i></i>' + (done ? 'Confirmed · sent to supervisor' : 'Draft');
-      confirmBtn.textContent = done ? 'Reopen' : 'Confirm repair';
+      status.innerHTML = '<i></i>' + (done ? L('Confirmed · sent to supervisor', 'Confermato · inviato al responsabile') : L('Draft', 'Bozza'));
+      confirmBtn.textContent = done ? L('Reopen', 'Riapri') : L('Confirm repair', 'Conferma intervento');
       confirmBtn.dataset.done = done ? '1' : '';
     }
     function renderCause(animate) {
@@ -79,8 +92,8 @@
       set(dd('cause'), c.t);
       set(dd('action'), c.action);
       set(dd('parts'), c.parts);
-      set(dd('hours'), 'Added by the technician', 'wait');
-      set(dd('outcome'), 'Confirmed after restart', 'wait');
+      set(dd('hours'), L('Added by the technician', 'Inserite dal tecnico'), 'wait');
+      set(dd('outcome'), L('Confirmed after restart', 'Confermato dopo la ripartenza'), 'wait');
       setStatus(false);
     }
     function renderAlarm(animate) {
@@ -99,8 +112,8 @@
       else if (ca) { ci = +ca.dataset.cause; renderCause(true); }
       else if (e.target === confirmBtn) {
         if (confirmBtn.dataset.done) { renderCause(false); return; }
-        type(dd('hours'), '0.7 h');
-        type(dd('outcome'), 'Machine restarted, running at full speed');
+        type(dd('hours'), L('0.7 h', '0,7 h'));
+        type(dd('outcome'), L('Machine restarted, running at full speed', 'Macchina ripartita, a piena velocità'));
         setStatus(true);
       }
     });
@@ -154,31 +167,31 @@
   var note = $('#note');
   if (note) {
     var out = function (k) { return $('#n-report [data-k="' + k + '"]'); };
-    var MISSING = 'Missing. QualiK asks the technician';
+    var MISSING = L('Missing. QualiK asks the technician', 'Manca. QualiK lo chiede al tecnico');
     var find = function (ss, re, skip) { for (var i = 0; i < ss.length; i++) { if (skip.indexOf(i) < 0 && re.test(ss[i])) return i; } return -1; };
     var parse = function () {
       var text = note.value.replace(/(\d)\.(\d)/g, '$1§$2');
       var ss = text.split(/[.!?\n]+/).map(function (s) { return s.replace(/§/g, '.').trim(); }).filter(Boolean);
       var used = [], r = {};
-      var m = note.value.match(/\b(filler|wrapper|press|pump|conveyor|robot|capper|labell?er|palleti[sz]er|mixer|oven|compressor|line)\s*\d*/i);
+      var m = note.value.match(/\b(filler|wrapper|press|pump|conveyor|robot|capper|labell?er|palleti[sz]er|mixer|oven|compressor|line|riempitrice|avvolgitrice|pressa|pompa|nastro|tappatrice|etichettatrice|pallettizzatore|miscelatore|forno|compressore|linea)\s*\d*/i);
       r.machine = m ? m[0].charAt(0).toUpperCase() + m[0].slice(1) : '';
       var take = function (re) { var i = find(ss, re, used); if (i < 0) return ''; used.push(i); return ss[i]; };
-      var h = note.value.match(/(\d+(?:[.,]\d+)?)\s*(hours?|hrs?|h\b|minutes?|min\b)/i);
-      r.hours = h ? h[1].replace(',', '.') + (/^m/i.test(h[2]) ? ' min' : ' h') : '';
-      if (h) { var hi = find(ss, /\d\s*(hours?|hrs?|h\b|minutes?|min\b)/i, used); if (hi >= 0 && ss[hi].split(' ').length < 5) used.push(hi); }
-      var p = take(/spare|part no|parts?:/i);
-      r.parts = p ? p.replace(/^.*?(spare parts?|parts?)\s*:?\s*/i, '').replace(/^./, function (c) { return c.toUpperCase(); }) : '';
-      r.outcome = take(/running|restart|working|solved|tested|back in|still|waiting for/i);
-      r.action = take(/cleaned|replaced|changed|tightened|adjusted|reset|swapped|repaired|calibrated|repositioned|fitted/i);
-      r.cause = take(/blocked|worn|broken|loose|because|due to|caused|leak|clogged|damaged|burnt|was |were /i);
-      r.fault = take(/alarm|stopped|fault|error|jam|noise|trip|fail/i) || (ss[0] && used.indexOf(0) < 0 ? ss[0] : '');
+      var h = note.value.match(/(\d+(?:[.,]\d+)?)\s*(hours?|hrs?|ore|ora|h\b|minutes?|minuti|min\b)/i);
+      r.hours = h ? (IT ? h[1].replace('.', ',') : h[1].replace(',', '.')) + (/^m/i.test(h[2]) ? ' min' : ' h') : '';
+      if (h) { var hi = find(ss, /\d\s*(hours?|hrs?|ore|ora|h\b|minutes?|minuti|min\b)/i, used); if (hi >= 0 && ss[hi].split(' ').length < 5) used.push(hi); }
+      var p = take(/spare|part no|parts?:|ricamb/i);
+      r.parts = p ? p.replace(/^.*?(spare parts?|parts?|ricambi?o?)\s*:?\s*/i, '').replace(/^./, function (c) { return c.toUpperCase(); }) : '';
+      r.outcome = take(/running|restart|working|solved|tested|back in|still|waiting for|ripart|funzion|risolt|in marcia|testat/i);
+      r.action = take(/cleaned|replaced|changed|tightened|adjusted|reset|swapped|repaired|calibrated|repositioned|fitted|pulit|sostituit|cambiat|serrat|regolat|resettat|riparat|calibrat|riposizionat|montat/i);
+      r.cause = take(/blocked|worn|broken|loose|because|due to|caused|leak|clogged|damaged|burnt|was |were |bloccat|ostruit|usurat|rott|allentat|perch|a causa|causat|perdita|intasat|danneggiat|bruciat|era |erano /i);
+      r.fault = take(/alarm|stopped|fault|error|jam|noise|trip|fail|allarm|fermat|guast|errore|incepp|rumore|scatt/i) || (ss[0] && used.indexOf(0) < 0 ? ss[0] : '');
       var miss = 0;
       ['machine', 'fault', 'cause', 'action', 'parts', 'hours', 'outcome'].forEach(function (k) {
         var el = out(k); if (!r[k]) miss++;
         el.textContent = r[k] || MISSING; el.className = r[k] ? '' : 'miss';
       });
-      $('#n-note').textContent = miss ? miss + (miss === 1 ? ' field is' : ' fields are') + ' missing. QualiK asks while the technician is still at the machine.' : 'All seven fields filled. The technician confirms, the supervisor approves.';
-      var st = $('#n-status'); st.className = 'pill ' + (miss ? 'warn' : 'ok'); st.innerHTML = '<i></i>' + (miss ? 'Draft' : 'Ready to confirm');
+      $('#n-note').textContent = miss ? (IT ? (miss === 1 ? 'Manca 1 campo' : 'Mancano ' + miss + ' campi') + '. QualiK lo chiede mentre il tecnico è ancora alla macchina.' : miss + (miss === 1 ? ' field is' : ' fields are') + ' missing. QualiK asks while the technician is still at the machine.') : L('All seven fields filled. The technician confirms, the supervisor approves.', 'Tutti i sette campi compilati. Il tecnico conferma, il responsabile approva.');
+      var st = $('#n-status'); st.className = 'pill ' + (miss ? 'warn' : 'ok'); st.innerHTML = '<i></i>' + (miss ? L('Draft', 'Bozza') : L('Ready to confirm', 'Pronto da confermare'));
     };
     note.addEventListener('input', parse); parse();
   }
@@ -187,10 +200,13 @@
   var chat = $('#chat');
   if (chat) {
     var msgs = $$('.msg', chat), btn = $('#chat-next'), step = 0, timer;
-    var LABELS = ['Send the photos', 'Send the voice note', 'Reply with the serial number', 'Start again'];
+    var LABELS = IT ? ['Invia le foto', 'Invia il vocale', 'Rispondi con la matricola', 'Ricomincia'] : ['Send the photos', 'Send the voice note', 'Reply with the serial number', 'Start again'];
     var jd = function (k) { return $('#job [data-k="' + k + '"]'); };
     var doc = function (k, cls, t) { var e = $('#job [data-d="' + k + '"]'); e.className = 'pill ' + cls; e.innerHTML = '<i></i>' + t; };
-    var FILL = {
+    var FILL = IT ? {
+      job: 'Manutenzione pompa di calore', site: 'Via Roma 12, Treviso', system: 'Pompa di calore aria-acqua, 8 kW',
+      work: 'Pulita la batteria esterna, controllo perdite sul circuito frigorifero, nessuna perdita', materials: 'Filtro × 1', hours: '1,5 h'
+    } : {
       job: 'Heat pump maintenance', site: 'Via Roma 12, Treviso', system: 'Air-to-water heat pump, 8 kW',
       work: 'Cleaned outdoor coil, leak check on refrigerant circuit, no leak found', materials: 'Filter × 1', hours: '1.5 h'
     };
@@ -199,18 +215,18 @@
       var set = animate ? type : function (el, t, cls) { el.className = cls || ''; el.textContent = t; };
       show(n);
       if (n === 0) {
-        ['job', 'site', 'system', 'work', 'materials', 'hours', 'serial'].forEach(function (k) { set(jd(k), 'Waiting for the technician', 'wait'); });
-        doc('report', '', 'Not started'); doc('fgas', '', 'Not started'); doc('logbook', '', 'Not started');
+        ['job', 'site', 'system', 'work', 'materials', 'hours', 'serial'].forEach(function (k) { set(jd(k), L('Waiting for the technician', 'In attesa del tecnico'), 'wait'); });
+        var ns = L('Not started', 'Da iniziare'); doc('report', '', ns); doc('fgas', '', ns); doc('logbook', '', ns);
       }
-      if (n === 1) { set(jd('system'), FILL.system); set(jd('site'), FILL.site); doc('report', 'warn', 'Drafting'); }
+      if (n === 1) { set(jd('system'), FILL.system); set(jd('site'), FILL.site); doc('report', 'warn', L('Drafting', 'In compilazione')); }
       if (n === 2) {
         ['job', 'work', 'materials', 'hours'].forEach(function (k) { set(jd(k), FILL[k]); });
-        set(jd('serial'), 'Missing. Asked on WhatsApp', 'miss');
-        doc('report', 'warn', '1 field missing'); doc('fgas', 'warn', 'Needs serial no.'); doc('logbook', 'warn', 'Drafting');
+        set(jd('serial'), L('Missing. Asked on WhatsApp', 'Manca. Chiesta su WhatsApp'), 'miss');
+        doc('report', 'warn', L('1 field missing', 'Manca 1 campo')); doc('fgas', 'warn', L('Needs serial no.', 'Serve la matricola')); doc('logbook', 'warn', L('Drafting', 'In compilazione'));
       }
       if (n === 3) {
         set(jd('serial'), '4471-22-0931');
-        doc('report', 'ok', 'Ready for the office'); doc('fgas', 'ok', 'Data ready'); doc('logbook', 'ok', 'Update ready');
+        doc('report', 'ok', L('Ready for the office', 'Pronto per l\'ufficio')); doc('fgas', 'ok', L('Data ready', 'Dati pronti')); doc('logbook', 'ok', L('Update ready', 'Aggiornamento pronto'));
       }
       btn.textContent = LABELS[n];
     };
@@ -254,20 +270,20 @@
     });
   }
 
-  /* ---------- Forms: mockup only, nothing is sent ---------- */
+  /* ---------- Forms: post to the endpoint in js/config.js ---------- */
   $$('.contact form').forEach(function (f) {
     f.addEventListener('submit', function (e) {
       e.preventDefault();
       var done = $('.done', f);
       var bad = $$('[required]', f).filter(function (i) { return i.type === 'checkbox' ? !i.checked : !i.value.trim() || !i.checkValidity(); });
       done.hidden = false;
-      if (bad.length) { done.textContent = 'Please fill in the required fields and tick the privacy box.'; bad[0].focus(); return; }
+      if (bad.length) { done.textContent = L('Please fill in the required fields and tick the privacy box.', 'Compila i campi obbligatori e spunta la casella privacy.'); bad[0].focus(); return; }
       var url = (window.QUALIK_FORMS || {})[f.elements.product.value];
-      if (!url) { done.textContent = 'This form is not connected yet. Please try again soon.'; return; }
-      done.textContent = 'Sending…';
+      if (!url) { done.textContent = L('This form is not connected yet. Please try again soon.', 'Il modulo non è ancora collegato. Riprova a breve.'); return; }
+      done.textContent = L('Sending…', 'Invio in corso…');
       fetch(url, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } })
-        .then(function (r) { if (!r.ok) throw 0; f.reset(); done.textContent = 'Thank you. We will reply shortly.'; })
-        .catch(function () { done.textContent = 'Something went wrong. Please try again.'; });
+        .then(function (r) { if (!r.ok) throw 0; f.reset(); done.textContent = L('Thank you. We will reply shortly.', 'Grazie. Ti risponderemo a breve.'); })
+        .catch(function () { done.textContent = L('Something went wrong. Please try again.', 'Qualcosa non ha funzionato. Riprova.'); });
     });
   });
 })();

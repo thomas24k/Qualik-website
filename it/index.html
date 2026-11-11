@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QualiK — Il sapere dei manutentori, a disposizione di ogni tecnico</title>
+<meta name="description" content="QualiK raccoglie quello che sanno i tuoi manutentori e lo mette a disposizione di ogni tecnico, in ogni stabilimento: dall'allarme del PLC alla procedura con la sua fonte, e un rapportino che si compila da solo.">
+<link rel="canonical" href="https://www.qualik.example/it/">
+<link rel="alternate" hreflang="en" href="https://www.qualik.example/">
+<link rel="alternate" hreflang="it" href="https://www.qualik.example/it/">
+<link rel="alternate" hreflang="x-default" href="https://www.qualik.example/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QualiK">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="QualiK — La linea si ferma. QualiK risponde.">
+<meta property="og:description" content="Dall'allarme alla procedura con la sua fonte. Rapportini che si compilano da soli. Una memoria degli interventi condivisa tra stabilimenti.">
+<meta property="og:image" content="https://www.qualik.example/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#eef0f3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0c0e'/%3E%3Cpath d='M10 7h4v7.2L20.3 7h5l-6.8 7.6L25.8 25h-4.9l-5.2-7.6-1.7 1.9V25h-4z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://www.qualik.example/#org","name":"QualiK","url":"https://www.qualik.example/","description":"QualiK trasforma quello che i manutentori sanno e fanno in conoscenza e documenti utilizzabili."},
+ {"@type":"SoftwareApplication","name":"QualiK","inLanguage":"it","applicationCategory":"BusinessApplication","operatingSystem":"Web","publisher":{"@id":"https://www.qualik.example/#org"},"description":"Dall'allarme del PLC alla procedura con la sua fonte, rapportini automatici e una memoria degli interventi condivisa tra stabilimenti."}
+]}
+</script>
+</head>
+<body>
+
+<a class="topbar" href="field.html"><span><b>QualiK Field</b><span class="long"> · Rapportini da WhatsApp, per installatori, idraulici ed elettricisti.</span></span><span class="go">Scopri <span class="arr" aria-hidden="true">→</span></span></a>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Principale">
+    <div class="brand"><a class="wordmark" href="index.html" aria-label="QualiK, home">QualiK</a><div class="switch" role="group" aria-label="Scegli un prodotto"><a href="index.html" aria-current="page">Industria</a><a href="field.html">Field</a></div></div>
+    <ul>
+      <li class="opt"><a href="#come">Come funziona</a></li>
+      <li class="opt"><a href="#funzioni">Funzioni</a></li>
+      <li class="opt"><a href="#garanzie">Garanzie</a></li>
+      <li class="lang"><a href="../index.html" hreflang="en" lang="en" aria-label="English version">EN</a></li>
+      <li class="cta"><a class="btn" href="#contatti">Contattaci <span class="arr" aria-hidden="true">→</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap grid">
+    <h1 data-r>La linea si ferma.<br>QualiK risponde.</h1>
+    <div class="hero-copy">
+      <p data-r>QualiK raccoglie quello che sanno i tuoi manutentori e lo mette a disposizione di ogni tecnico, in ogni stabilimento, nel momento in cui una macchina si ferma.</p>
+      <a class="btn btn-accent" href="#contatti" data-r>Contattaci <span class="arr" aria-hidden="true">→</span></a>
+      <p class="hint small muted" data-r>Provalo: scegli un allarme, poi una causa. Il rapportino si scrive da solo. Dati di esempio.</p>
+    </div>
+
+    <div class="stage" data-r>
+      <div class="console" data-ui id="console">
+        <div class="console-list" role="tablist" aria-label="Allarmi attivi">
+          <p class="ui-label">Allarmi · Stabilimento 1</p>
+          <button class="alarm" role="tab" aria-selected="true" data-alarm="0"><b>F3041 <time>03:07</time></b><span>Sovratemperatura azionamento</span><span>Riempitrice 2 · Linea 4</span></button>
+          <button class="alarm" role="tab" aria-selected="false" data-alarm="1"><b>A217 <time>02:41</time></b><span>Vuoto sotto soglia</span><span>Pick-and-place · Linea 1</span></button>
+          <button class="alarm" role="tab" aria-selected="false" data-alarm="2"><b>E118 <time>Ieri</time></b><span>Tensione film fuori range</span><span>Avvolgitrice 1 · Linea 4</span></button>
+        </div>
+        <div class="console-detail" role="tabpanel" aria-live="polite">
+          <div class="cd-head">
+            <div>
+              <p class="cd-title" id="c-title">Sovratemperatura azionamento</p>
+              <p class="cd-meta" id="c-meta">F3041 · Riempitrice 2 · Linea 4 · 03:07</p>
+            </div>
+            <span class="pill"><i></i>Connessione in sola lettura</span>
+          </div>
+          <p class="ui-label" style="margin-top:0">Cause probabili</p>
+          <div id="c-causes">
+            <button class="cause" aria-pressed="true" data-cause="0"><strong>Ventola di raffreddamento ostruita dalla polvere di prodotto</strong><span class="src">Intervento passato · 14 mar · Stabilimento 2</span></button>
+            <button class="cause" aria-pressed="false" data-cause="1"><strong>Freno dell'asse 2 non si sblocca</strong><span class="src">Schema E-204, foglio 3</span></button>
+          </div>
+          <p class="ui-label">Procedura</p>
+          <ol class="proc" id="c-proc">
+            <li>Fermare la riempitrice e mettere in sicurezza il quadro azionamenti.</li>
+            <li>Togliere la protezione, pulire la ventola e il filtro.</li>
+            <li>Verificare che la temperatura del quadro sia rientrata.</li>
+            <li>Resettare l'azionamento e ripartire a velocità ridotta.</li>
+            <li class="src">Manuale, sezione 7.3, pagina 142</li>
+          </ol>
+          <p class="ui-label">Rapportino di intervento</p>
+          <dl class="report" id="c-report">
+            <dt>Macchina</dt><dd data-k="machine">Riempitrice 2 · Linea 4</dd>
+            <dt>Guasto</dt><dd data-k="fault">F3041 Sovratemperatura azionamento</dd>
+            <dt>Causa</dt><dd data-k="cause">Ventola di raffreddamento ostruita dalla polvere di prodotto</dd>
+            <dt>Intervento</dt><dd data-k="action">Pulita la ventola, sostituito il filtro del quadro</dd>
+            <dt>Ricambi</dt><dd data-k="parts">Filtro quadro FK-220 × 1</dd>
+            <dt>Ore</dt><dd data-k="hours" class="wait">Inserite dal tecnico</dd>
+            <dt>Esito</dt><dd data-k="outcome" class="wait">Confermato dopo la ripartenza</dd>
+          </dl>
+          <div class="cd-foot">
+            <span class="pill warn" id="c-status"><i></i>Bozza</span>
+            <button class="ui-btn" id="c-confirm">Conferma intervento</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fieldband" aria-labelledby="fb-h">
+  <div class="wrap grid">
+    <div class="txt">
+      <h2 id="fb-h" data-r>Installatori, idraulici, elettricisti: ecco QualiK Field.</h2>
+      <p data-r>I tuoi tecnici mandano foto e un vocale su WhatsApp. QualiK Field scrive il rapportino e prepara le pratiche, pronte da firmare.</p>
+      <p class="trades-line small" data-r>Climatizzazione · Pompe di calore · Caldaie · Idraulica · Impianti elettrici</p>
+      <a class="btn" href="field.html" data-r>Scopri QualiK Field <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+    <figure class="pic" data-r>
+      <img src="../assets/boiler-room.jpg" width="1600" height="800" alt="Una centrale termica con caldaie, quadri di controllo e tubazioni gialle." loading="lazy" decoding="async" style="object-position:30% 50%">
+    </figure>
+  </div>
+</section>
+
+<section class="why" aria-labelledby="why-h">
+  <div class="wrap grid why-grid">
+    <figure class="why-pic shutter drift" data-shutter>
+      <img src="../assets/lathe-hillside-workshop.jpg" width="1600" height="1185" alt="Un grande tornio in un'officina degli anni Venti, con i trucioli di metallo ammucchiati a terra." loading="lazy" decoding="async">
+    </figure>
+    <div class="why-text">
+      <h2 id="why-h" data-r>2 su 3</h2>
+      <p class="lead" data-r>dei manutentori che le imprese cercano sono difficili da trovare.</p>
+      <p class="small" data-r>Fonte: Unioncamere–Ministero del Lavoro, Sistema Informativo Excelsior, luglio 2026 (66,5%).</p>
+      <div class="manifesto">
+        <p data-r>L'industria italiana l'hanno costruita persone che sanno riparare le macchine. Quel sapere vive nella testa di pochi. E ogni anno, una parte va in pensione.</p>
+        <p data-r>Quando una linea si ferma alle 3 di notte, chi risponde?</p>
+        <p data-r>Ogni riparazione è conoscenza. Noi la rendiamo disponibile a tutti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro" aria-labelledby="who-h">
+  <div class="wrap grid">
+    <p class="lead" data-r>QualiK raccoglie l'esperienza dei manutentori e la mette a disposizione di ogni tecnico, in ogni stabilimento, nel momento in cui una macchina si ferma.</p>
+    <h2 id="who-h" data-r>Per chi è</h2>
+    <p class="col" data-r><b>Costruttori di macchine con assistenza post-vendita.</b> I tuoi tecnici migliori passano le giornate al telefono o in trasferta. QualiK dà a ogni tecnico di assistenza, e ai tuoi clienti, la procedura e i casi passati. <span class="measure">Migliora la risoluzione al primo intervento e da remoto, e riduce le trasferte.</span></p>
+    <p class="col" data-r><b>Gruppi con stabilimenti in più paesi.</b> La stessa macchina si guasta allo stesso modo in ogni stabilimento, e ognuno lo risolve da solo. QualiK condivide gli interventi confermati tra stabilimenti e risponde nella lingua del tecnico. <span class="measure">Migliora le ore di fermo.</span></p>
+    <p class="col" data-r><b>Squadre vicine alla pensione.</b> I tuoi manutentori senior hanno decenni di riparazioni che nessuno ha scritto. Interviste guidate le trasformano in procedure validate prima che se ne vadano. <span class="measure">Migliora il tempo che serve a un nuovo tecnico per diventare autonomo.</span></p>
+    <p class="col" data-r><b>Prima una macchina.</b> Partiamo da una macchina e dai suoi allarmi più frequenti, e misuriamo i risultati insieme. I dati restano tuoi, la connessione all'impianto è in sola lettura e la approva il tuo team IT/OT.</p>
+  </div>
+</section>
+
+<section class="how" id="come" aria-labelledby="how-h">
+  <div class="wrap grid">
+    <h2 id="how-h">Come funziona QualiK</h2>
+    <div class="how-steps">
+      <div class="how-step on" data-step="1">
+        <p>Prima raccoglie ciò che esiste già.</p>
+        <p>Allarmi del PLC, vocali, foto, manuali, schemi e vecchi rapportini. Il modo di lavorare dei tuoi tecnici non cambia.</p>
+      </div>
+      <div class="how-step" data-step="2">
+        <p>Poi collega ogni causa alla sua fonte.</p>
+        <p>Cause, procedure e casi passati sono legati tra loro. Ogni collegamento rimanda al manuale, allo schema o all'intervento da cui viene.</p>
+      </div>
+      <div class="how-step" data-step="3">
+        <p>Infine risponde e scrive il rapportino.</p>
+        <p>Il tecnico riceve la risposta, il rapportino si compila da solo e ogni intervento confermato arricchisce una memoria condivisa tra stabilimenti.</p>
+      </div>
+    </div>
+    <div class="how-stage">
+      <div class="how-frag" data-ui data-state="1" aria-hidden="true">
+        <div class="how-state s1">
+          <p class="ui-label">Raccolto oggi · Riempitrice 2</p>
+          <div class="cap-row"><span class="kind">PLC</span><div><b>Allarme F3041</b><span class="sub">Sovratemperatura azionamento</span></div><time>03:07</time></div>
+          <div class="cap-row"><span class="kind">Vocale</span><div><b><span class="wave" data-n="18"></span>0:42</b><span class="sub">«La ventola era piena di polvere…»</span></div><time>03:31</time></div>
+          <div class="cap-row"><span class="kind">Foto</span><div><b>2 foto</b><span class="sub">Quadro azionamenti, protezione ventola</span></div><time>03:33</time></div>
+          <div class="cap-row"><span class="kind">Manuale</span><div><b>Serie riempitrici, manuale di manutenzione</b><span class="sub">312 pagine, indicizzato</span></div><time>In archivio</time></div>
+          <div class="cap-row"><span class="kind">Schema</span><div><b>E-204 Quadro azionamenti</b><span class="sub">6 fogli</span></div><time>In archivio</time></div>
+          <div class="cap-row"><span class="kind">Rapportino</span><div><b>Rapportino, Stabilimento 2</b><span class="sub">Stesso allarme, confermato</span></div><time>14 mar</time></div>
+        </div>
+        <div class="how-state s2">
+          <p class="ui-label">Conoscenza collegata</p>
+          <div class="graph">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+              <line pathLength="100" x1="50" y1="50" x2="20" y2="13"/>
+              <line pathLength="100" x1="50" y1="50" x2="79" y2="14"/>
+              <line pathLength="100" x1="50" y1="50" x2="21" y2="87"/>
+              <line pathLength="100" x1="50" y1="50" x2="79" y2="87"/>
+            </svg>
+            <div class="node core" style="left:50%;top:50%"><small>Causa</small>Ventola ostruita</div>
+            <div class="node" style="left:20%;top:13%"><small>Allarme</small>F3041 sovratemperatura</div>
+            <div class="node" style="left:79%;top:14%"><small>Procedura</small>Pulire ventola e filtro</div>
+            <div class="node" style="left:21%;top:87%"><small>Intervento passato</small>14 mar · Stabilimento 2</div>
+            <div class="node" style="left:79%;top:87%"><small>Manuale</small>Sezione 7.3, pagina 142</div>
+          </div>
+        </div>
+        <div class="how-state s3">
+          <p class="ui-label">Risposta al tecnico</p>
+          <div class="answer">
+            <p><b>Più probabile: ventola di raffreddamento ostruita dalla polvere.</b></p>
+            <p>Quattro passaggi, circa 40 minuti. Risolto allo stesso modo nello Stabilimento 2 il 14 marzo.</p>
+            <p class="src">Manuale, sezione 7.3, pagina 142 · Intervento passato, Stabilimento 2</p>
+          </div>
+          <div style="margin-top:14px">
+            <div class="rowline"><span><b>Rapportino</b><br><span class="src" style="margin:0">5 campi su 7 compilati dall'allarme e dal vocale</span></span><span class="pill warn"><i></i>Da confermare</span></div>
+            <div class="rowline"><span><b>Responsabile</b><br><span style="font-size:13px;color:var(--ui-muted)">Approva dopo la conferma del tecnico</span></span><span class="pill"><i></i>In attesa</span></div>
+            <div class="rowline"><span><b>Memoria interventi</b><br><span style="font-size:13px;color:var(--ui-muted)">Il caso sarà disponibile a tutti gli stabilimenti</span></span><span class="pill ok"><i></i>Alla conferma</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="versus" aria-labelledby="vs-h">
+  <div class="wrap grid">
+    <h2 id="vs-h" data-r>Con QualiK, e senza</h2>
+    <p class="statement" data-r>Le macchine si possono ricomprare. L'esperienza di chi le ripara, no.</p>
+    <table>
+      <thead><tr><th scope="col">Senza QualiK</th><th scope="col">Con QualiK</th></tr></thead>
+      <tbody>
+        <tr data-r><td>Allarme</td><td>Allarme</td></tr>
+        <tr data-r><td>Si cerca chi sa</td><td>Procedura con la fonte</td></tr>
+        <tr data-r><td>Trasferta</td><td>Risolto al primo intervento</td></tr>
+        <tr data-r><td>Rapportino mai scritto</td><td>Rapportino automatico</td></tr>
+        <tr data-r><td>Il sapere va in pensione</td><td>Il sapere resta e cresce</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="features" id="funzioni" aria-labelledby="feat-h">
+  <div class="wrap">
+    <h2 id="feat-h" data-r>Tutto quello che fa QualiK</h2>
+    <div class="cmd" data-ui id="cmd">
+      <label class="sr" for="cmd-q">Cerca una funzione</label>
+      <input id="cmd-q" type="search" placeholder="Cerca una funzione" autocomplete="off" data-r>
+      <ul>
+        <li><button class="cmd-row" aria-current="true"><span>Dall'allarme alla soluzione</span><span class="who">Tecnico</span><span class="more">Quando il PLC segnala un allarme, il tecnico riceve subito la procedura e i casi simili già risolti. La connessione è in sola lettura: QualiK non invia mai comandi alla macchina.</span></button></li>
+        <li><button class="cmd-row"><span>Diagnosi guidata</span><span class="who">Tecnico</span><span class="more">Descrivi il guasto con parole tue e ricevi le cause probabili, ognuna con la sua fonte. Vale anche per l'assistenza da remoto tra stabilimenti e verso i clienti.</span></button></li>
+        <li><button class="cmd-row"><span>Rapportini automatici</span><span class="who">Responsabile</span><span class="more">Da un vocale, dalle foto o dall'allarme stesso, il rapportino si compila da solo: macchina, guasto, causa, intervento, ricambi, ore, esito. Il tecnico conferma, il responsabile approva.</span></button></li>
+        <li><button class="cmd-row"><span>Memoria degli interventi</span><span class="who">Ogni stabilimento</span><span class="more">Ogni rapportino confermato migliora le risposte successive, per ogni tecnico in ogni stabilimento.</span></button></li>
+        <li><button class="cmd-row"><span>Collaudi e setup</span><span class="who">Ufficio tecnico</span><span class="more">I parametri vengono salvati e collegati ai risultati che hanno prodotto. I tuoi ingegneri li validano.</span></button></li>
+        <li><button class="cmd-row"><span>Conformità assistita</span><span class="who">Responsabili</span><span class="more">La documentazione tecnica e di conformità la prepara QualiK; la rivedono e la firmano i tuoi responsabili.</span></button></li>
+        <li><button class="cmd-row"><span>Sapere degli esperti</span><span class="who">Tecnici senior</span><span class="more">Le interviste guidate ai tecnici senior diventano procedure validate, prima che quell'esperienza vada in pensione.</span></button></li>
+        <li><button class="cmd-row"><span>Nella lingua del tecnico</span><span class="who">Stabilimenti all'estero</span><span class="more">Le risposte arrivano nella lingua del tecnico che chiede, in qualunque lingua sia scritto il manuale.</span></button></li>
+        <li><button class="cmd-row"><span>Guasti ricorrenti</span><span class="who">Ufficio tecnico</span><span class="more">I guasti che si ripetono vengono segnalati all'ufficio tecnico, con i casi che li documentano.</span></button></li>
+        <li><button class="cmd-row"><span>Servizio premium</span><span class="who">Costruttori</span><span class="more">I costruttori di macchine possono offrire QualiK ai propri clienti come servizio sulle macchine che vendono.</span></button></li>
+      </ul>
+      <p class="none" hidden>Nessuna funzione trovata. Prova «rapportino», «allarme» o «lingua».</p>
+    </div>
+  </div>
+</section>
+
+<section class="split" aria-labelledby="split-h">
+  <h2 class="sr" id="split-h">Detto una volta. Messo per iscritto.</h2>
+  <div class="in-half">
+    <div>
+      <label for="note" class="small">Quello che dice il tecnico. Modificalo e guarda cambiare il rapportino.</label>
+      <textarea id="note" spellcheck="false">Riempitrice 2 ferma con allarme di sovratemperatura azionamento. La ventola era ostruita dalla polvere di prodotto. Pulita la ventola e sostituito il filtro del quadro. Ricambi: filtro FK-220. 1,5 ore. Macchina ripartita e in funzione.</textarea>
+    </div>
+    <span class="half-head" aria-hidden="true">Detto una volta.</span>
+  </div>
+  <div class="out-half">
+    <div class="sheet-report" data-ui>
+      <div class="cd-head">
+        <div><p class="cd-title">Rapportino di intervento</p><p class="cd-meta">Compilato da un vocale</p></div>
+        <span class="pill warn" id="n-status"><i></i>Bozza</span>
+      </div>
+      <dl class="report" id="n-report" aria-live="polite">
+        <dt>Macchina</dt><dd data-k="machine">Riempitrice 2</dd>
+        <dt>Guasto</dt><dd data-k="fault">Riempitrice 2 ferma con allarme di sovratemperatura azionamento</dd>
+        <dt>Causa</dt><dd data-k="cause">La ventola era ostruita dalla polvere di prodotto</dd>
+        <dt>Intervento</dt><dd data-k="action">Pulita la ventola e sostituito il filtro del quadro</dd>
+        <dt>Ricambi</dt><dd data-k="parts">Filtro FK-220</dd>
+        <dt>Ore</dt><dd data-k="hours">1,5 h</dd>
+        <dt>Esito</dt><dd data-k="outcome">Macchina ripartita e in funzione</dd>
+      </dl>
+      <div class="cd-foot"><span class="src" id="n-note">Tutti i sette campi compilati. Il tecnico conferma, il responsabile approva.</span></div>
+    </div>
+    <span class="half-head" aria-hidden="true">Messo per iscritto.</span>
+  </div>
+</section>
+
+<section class="guarantees" id="garanzie" aria-labelledby="g-h">
+  <div class="wrap grid">
+    <figure data-r>
+      <img src="../assets/codogno-1921.jpg" width="1273" height="1517" alt="Disegno d'assieme del 1921 di una sbiancatrice per riso, firmato da un'officina meccanica di Codogno." loading="lazy" decoding="async">
+      <figcaption class="small">La fonte, un secolo fa: un disegno d'assieme di un'officina meccanica di Codogno, 1921.</figcaption>
+    </figure>
+    <div class="g-body">
+      <h2 id="g-h" data-r>Cosa resta nelle tue mani</h2>
+      <ul>
+        <li data-r><b>I dati restano tuoi.</b><span>Manuali, schemi, rapportini e interventi sono tuoi. Servono a rispondere ai tuoi tecnici e a nessun altro.</span></li>
+        <li data-r><b>Ogni risposta cita la fonte.</b><span>La pagina del manuale, il foglio dello schema o l'intervento passato sono sempre a un tocco, così il tecnico verifica prima di agire.</span></li>
+        <li data-r><b>Il sistema suggerisce. Le persone decidono.</b><span>I tecnici confermano, i responsabili approvano, gli ingegneri validano. Niente entra nella memoria senza conferma.</span></li>
+        <li data-r><b>Sola lettura, approvata dal tuo team IT/OT.</b><span>QualiK legge gli allarmi dall'impianto. Non invia mai un comando a una macchina.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="l-h">
+  <div class="wrap grid">
+    <h2 id="l-h" data-r>Lavoriamo insieme</h2>
+    <div class="sheet" data-r>
+      <div class="portrait" role="img" aria-label="Segnaposto per il ritratto">K</div>
+      <p>Non partiamo con un progetto enorme. Partiamo da <mark>una macchina e dai suoi allarmi più frequenti</mark>.</p>
+      <p>Ci colleghiamo in sola lettura, raccogliamo manuali, schemi e vecchi rapportini, e ci sediamo con i tecnici che conoscono meglio quella macchina.</p>
+      <p>Poi misuriamo i risultati insieme: guasti risolti al primo intervento, ore di fermo linea, quanto presto un nuovo tecnico lavora da solo.</p>
+      <p>Se i numeri si muovono, aggiungiamo la macchina successiva.</p>
+      <p class="sign">Fondatore, QualiK</p>
+      <div class="tear">
+        <span class="small">Rispondi a questa lettera</span>
+        <a class="btn" href="#contatti">Contattaci <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <figure class="pic" data-r>
+      <img src="../assets/factory-hall-1934.jpg" width="1600" height="1133" alt="Un capannone industriale vuoto nel 1934, con la luce del giorno sulle file di macchine." loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<section class="tiles" aria-labelledby="t-h">
+  <div class="wrap">
+    <div class="row">
+      <div class="tile pic" aria-hidden="true"><img src="../assets/boiler-room.jpg" width="1600" height="800" alt="" loading="lazy" decoding="async" style="object-position:30% 50%"></div>
+      <div class="tile main" data-r>
+        <h2 id="t-h">Hai un'impresa di installazione?</h2>
+        <p>QualiK Field trasforma i vocali e le foto WhatsApp dei tuoi tecnici in rapportini e pratiche pronte da firmare. Per installatori di climatizzazione, idraulici ed elettricisti.</p>
+        <a class="btn" href="field.html">Scopri QualiK Field <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="tile flat" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contatti" aria-labelledby="c-h">
+  <div class="wrap grid">
+    <div class="prompt">
+      <h2 id="c-h" data-r><span>Partiamo da una macchina.</span><span>Dicci quale.</span></h2>
+      <p data-r>Scrivi due righe sulla macchina e sugli allarmi che la fermano più spesso. Ti rispondiamo di persona.</p>
+      <p class="small muted" data-r>Usiamo i tuoi dati solo per risponderti.</p>
+    </div>
+    <form action="#" method="post" novalidate>
+      <input type="hidden" name="product" value="qualik">
+      <input type="hidden" name="lang" value="it">
+      <label class="f wide"><span>Email aziendale</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="f"><span>Azienda</span><input name="company" autocomplete="organization" required></label>
+      <label class="f"><span>Ruolo</span><input name="role" autocomplete="organization-title"></label>
+      <label class="f wide"><span>Messaggio</span><textarea name="message" placeholder="La macchina, e cosa la ferma più spesso"></textarea></label>
+      <label class="consent"><input type="checkbox" name="privacy" required><span>Ho letto l'<a href="privacy.html">informativa privacy</a> e accetto di essere contattato per questa richiesta.</span></label>
+      <div class="send">
+        <button class="btn btn-accent" type="submit">Invia <span class="arr" aria-hidden="true">→</span></button>
+        <p class="done small" role="status" hidden></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <div class="line">
+    <p>Il sapere dei tecnici, a disposizione di ogni tecnico.</p>
+    <ul>
+      <li><a href="index.html">QualiK</a></li>
+      <li><a href="field.html">QualiK Field</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+      <li><a href="privacy.html#termini">Termini</a></li>
+      <li><a href="privacy.html#note-legali">Note legali</a></li>
+      <li><a href="../index.html" hreflang="en" lang="en">English</a></li>
+    </ul>
+    <p>© 2026 QualiK · <a href="privacy.html">Privacy</a></p>
+  </div>
+  <p class="credits small">Immagini: <a href="https://commons.wikimedia.org/wiki/File:Lathe_at_the_Hillside_Railway_Workshop_ATLIB_224446.png">«Lathe at the Hillside Railway Workshop»</a> di Albert Percy Godber, pubblico dominio; <a href="https://commons.wikimedia.org/wiki/File:1921-Allievi-Ettore-Off-Meccanica-Codogno.jpg">«1921 Allievi Ettore Off. Meccanica Codogno»</a>, caricata da Albertomos, pubblico dominio; <a href="https://commons.wikimedia.org/wiki/File:The_hall_and_machinery_at_the_factory_of_Veljekset_%C3%85str%C3%B6m_Oy_1934_(JOKAKAL3B-3613).tif">«The hall and machinery at the factory of Veljekset Åström Oy»</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Boiler_room_%E2%80%93_Panorama_(Oliksiy_Yakovlyev_via_Poly_Haven).jpg">«Boiler room, panorama»</a> di Oliksiy Yakovlyev, CC0. Tutte da Wikimedia Commons.</p>
+</footer>
+
+<script src="../js/config.js" defer></script>
+<script src="../js/site.js" defer></script>
+</body>
+</html>

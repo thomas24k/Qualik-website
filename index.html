@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QualiK — Maintenance know-how, available to every technician</title>
+<meta name="description" content="QualiK captures what your maintenance technicians know and gives it to every technician, in every plant: from PLC alarm to procedure with its source, and a service report that fills itself in.">
+<link rel="canonical" href="https://www.qualik.example/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QualiK">
+<meta property="og:title" content="QualiK — The line stops. QualiK answers.">
+<meta property="og:description" content="From alarm to procedure with its source. Service reports that fill themselves in. A repair memory shared across plants.">
+<meta property="og:image" content="https://www.qualik.example/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#eef0f3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0c0e'/%3E%3Cpath d='M10 7h4v7.2L20.3 7h5l-6.8 7.6L25.8 25h-4.9l-5.2-7.6-1.7 1.9V25h-4z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://www.qualik.example/#org","name":"QualiK","url":"https://www.qualik.example/","description":"QualiK turns what maintenance technicians know and do into usable knowledge and documents."},
+ {"@type":"SoftwareApplication","name":"QualiK","applicationCategory":"BusinessApplication","operatingSystem":"Web","publisher":{"@id":"https://www.qualik.example/#org"},"description":"From PLC alarm to procedure with its source, automatic service reports and a repair memory shared across plants."}
+]}
+</script>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Main">
+    <div class="brand"><a class="wordmark" href="index.html" aria-label="QualiK home">QualiK</a><div class="switch" role="group" aria-label="Choose a product"><a href="index.html" aria-current="page">Industry</a><a href="field.html">Field</a></div></div>
+    <ul>
+      <li class="opt"><a href="#how">How it works</a></li>
+      <li class="opt"><a href="#features">Features</a></li>
+      <li class="opt"><a href="#guarantees">Guarantees</a></li>
+      <li class="cta"><a class="btn" href="#contact">Get in touch <span class="arr" aria-hidden="true">→</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO: the product performs -->
+<section class="hero">
+  <div class="wrap grid">
+    <h1 data-r>The line stops.<br>QualiK answers.</h1>
+    <div class="hero-copy">
+      <p data-r>QualiK captures what your maintenance technicians know and gives it to every technician, in every plant, the moment a machine stops.</p>
+      <a class="btn btn-accent" href="#contact" data-r>Get in touch <span class="arr" aria-hidden="true">→</span></a>
+      <p class="hint small muted" data-r>Try it: pick an alarm, then a cause. The service report writes itself. Sample data.</p>
+    </div>
+
+    <div class="stage" data-r>
+      <div class="console" data-ui id="console">
+        <div class="console-list" role="tablist" aria-label="Active alarms">
+          <p class="ui-label">Alarms · Plant 1</p>
+          <button class="alarm" role="tab" aria-selected="true" data-alarm="0"><b>F3041 <time>03:07</time></b><span>Servo drive overtemperature</span><span>Filler 2 · Line 4</span></button>
+          <button class="alarm" role="tab" aria-selected="false" data-alarm="1"><b>A217 <time>02:41</time></b><span>Vacuum below threshold</span><span>Pick-and-place · Line 1</span></button>
+          <button class="alarm" role="tab" aria-selected="false" data-alarm="2"><b>E118 <time>Yesterday</time></b><span>Film tension out of range</span><span>Wrapper 1 · Line 4</span></button>
+        </div>
+        <div class="console-detail" role="tabpanel" aria-live="polite">
+          <div class="cd-head">
+            <div>
+              <p class="cd-title" id="c-title">Servo drive overtemperature</p>
+              <p class="cd-meta" id="c-meta">F3041 · Filler 2 · Line 4 · 03:07</p>
+            </div>
+            <span class="pill"><i></i>Read-only connection</span>
+          </div>
+          <p class="ui-label" style="margin-top:0">Probable causes</p>
+          <div id="c-causes">
+            <button class="cause" aria-pressed="true" data-cause="0"><strong>Cooling fan blocked by product dust</strong><span class="src">Past repair · 14 Mar · Plant 2</span></button>
+            <button class="cause" aria-pressed="false" data-cause="1"><strong>Brake not releasing on axis 2</strong><span class="src">Drawing E-204, sheet 3</span></button>
+          </div>
+          <p class="ui-label">Procedure</p>
+          <ol class="proc" id="c-proc">
+            <li>Stop the filler and lock out the drive cabinet.</li>
+            <li>Remove the fan guard, clean the fan and the filter.</li>
+            <li>Check the cabinet temperature is back in range.</li>
+            <li>Reset the drive and restart at reduced speed.</li>
+            <li class="src">Manual, section 7.3, page 142</li>
+          </ol>
+          <p class="ui-label">Service report</p>
+          <dl class="report" id="c-report">
+            <dt>Machine</dt><dd data-k="machine">Filler 2 · Line 4</dd>
+            <dt>Fault</dt><dd data-k="fault">F3041 Servo drive overtemperature</dd>
+            <dt>Cause</dt><dd data-k="cause">Cooling fan blocked by product dust</dd>
+            <dt>Action</dt><dd data-k="action">Cleaned cooling fan, replaced cabinet filter</dd>
+            <dt>Spare parts</dt><dd data-k="parts">Cabinet filter FK-220 × 1</dd>
+            <dt>Hours</dt><dd data-k="hours" class="wait">Added by the technician</dd>
+            <dt>Outcome</dt><dd data-k="outcome" class="wait">Confirmed after restart</dd>
+          </dl>
+          <div class="cd-foot">
+            <span class="pill warn" id="c-status"><i></i>Draft</span>
+            <button class="ui-btn" id="c-confirm">Confirm repair</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY: the one figure -->
+<section class="why" aria-labelledby="why-h">
+  <div class="wrap grid why-grid">
+    <figure class="why-pic shutter drift" data-shutter>
+      <img src="assets/lathe-hillside-workshop.jpg" width="1600" height="1185" alt="A heavy lathe in a 1920s workshop, metal swarf piled on the floor beside it." loading="lazy" decoding="async">
+    </figure>
+    <div class="why-text">
+      <h2 id="why-h" data-r>2 out of 3</h2>
+      <p class="lead" data-r>maintenance technicians that companies look for are hard to find.</p>
+      <p class="small" data-r>Source: Unioncamere–Italian Ministry of Labour, Excelsior system, July 2026 (66.5%).</p>
+      <div class="manifesto">
+        <p data-r>Italian industry was built by people who know how to fix machines. That knowledge lives in the heads of a few people. And every year, some of it retires.</p>
+        <p data-r>When a line stops at 3 a.m., who answers?</p>
+        <p data-r>Every repair is knowledge. We make it available to everyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO: lead line over four columns -->
+<section class="intro" aria-labelledby="who-h">
+  <div class="wrap grid">
+    <p class="lead" data-r>QualiK captures the experience of maintenance technicians and makes it available to every technician, in every plant, the moment a machine stops.</p>
+    <h2 id="who-h" data-r>Who it's for</h2>
+    <p class="col" data-r><b>Machine builders with after-sales service.</b> Your best technicians spend their days on the phone or on the road. QualiK gives every service technician, and your customers, the procedure and the past cases. <span class="measure">It improves the first-time and remote fix rate, and cuts field visits.</span></p>
+    <p class="col" data-r><b>Groups with plants in several countries.</b> The same machine fails the same way in every plant, and each plant solves it alone. QualiK shares confirmed repairs across plants and answers in the technician's language. <span class="measure">It improves hours of downtime.</span></p>
+    <p class="col" data-r><b>Teams close to retirement.</b> Your senior maintenance technicians carry decades of fixes nobody wrote down. Guided interviews turn them into validated procedures before they leave. <span class="measure">It improves the time a new technician needs to become autonomous.</span></p>
+    <p class="col" data-r><b>One machine first.</b> We start with one machine and its most frequent alarms, and measure the results together. The data stays yours, the plant connection is read-only, and your IT/OT team approves it.</p>
+  </div>
+</section>
+
+<!-- HOW: pinned fragment, changing state -->
+<section class="how" id="how" aria-labelledby="how-h">
+  <div class="wrap grid">
+    <h2 id="how-h">How QualiK works</h2>
+    <div class="how-steps">
+      <div class="how-step on" data-step="1">
+        <p>First, it captures what already exists.</p>
+        <p>PLC alarms, voice notes, photos, manuals, drawings and past service reports. Nothing changes in how your technicians work.</p>
+      </div>
+      <div class="how-step" data-step="2">
+        <p>Then it links every cause to its source.</p>
+        <p>Causes, procedures and past cases are tied together. Every link points back to the manual, the drawing or the repair it came from.</p>
+      </div>
+      <div class="how-step" data-step="3">
+        <p>Finally, it answers and writes the report.</p>
+        <p>The technician gets the answer, the service report fills itself in, and each confirmed repair adds to a memory shared across plants.</p>
+      </div>
+    </div>
+    <div class="how-stage">
+      <div class="how-frag" data-ui data-state="1" aria-hidden="true">
+        <div class="how-state s1">
+          <p class="ui-label">Captured today · Filler 2</p>
+          <div class="cap-row"><span class="kind">PLC</span><div><b>Alarm F3041</b><span class="sub">Servo drive overtemperature</span></div><time>03:07</time></div>
+          <div class="cap-row"><span class="kind">Voice</span><div><b><span class="wave" data-n="18"></span>0:42</b><span class="sub">“The fan was full of dust…”</span></div><time>03:31</time></div>
+          <div class="cap-row"><span class="kind">Photos</span><div><b>2 photos</b><span class="sub">Drive cabinet, fan guard</span></div><time>03:33</time></div>
+          <div class="cap-row"><span class="kind">Manual</span><div><b>Filler series, maintenance manual</b><span class="sub">312 pages, indexed</span></div><time>On file</time></div>
+          <div class="cap-row"><span class="kind">Drawing</span><div><b>E-204 Drive cabinet</b><span class="sub">6 sheets</span></div><time>On file</time></div>
+          <div class="cap-row"><span class="kind">Report</span><div><b>Service report, Plant 2</b><span class="sub">Same alarm, confirmed</span></div><time>14 Mar</time></div>
+        </div>
+        <div class="how-state s2">
+          <p class="ui-label">Linked knowledge</p>
+          <div class="graph">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+              <line pathLength="100" x1="50" y1="50" x2="20" y2="13"/>
+              <line pathLength="100" x1="50" y1="50" x2="79" y2="14"/>
+              <line pathLength="100" x1="50" y1="50" x2="21" y2="87"/>
+              <line pathLength="100" x1="50" y1="50" x2="79" y2="87"/>
+            </svg>
+            <div class="node core" style="left:50%;top:50%"><small>Cause</small>Cooling fan blocked</div>
+            <div class="node" style="left:20%;top:13%"><small>Alarm</small>F3041 overtemperature</div>
+            <div class="node" style="left:79%;top:14%"><small>Procedure</small>Clean fan and filter</div>
+            <div class="node" style="left:21%;top:87%"><small>Past repair</small>14 Mar · Plant 2</div>
+            <div class="node" style="left:79%;top:87%"><small>Manual</small>Section 7.3, page 142</div>
+          </div>
+        </div>
+        <div class="how-state s3">
+          <p class="ui-label">Answer to the technician</p>
+          <div class="answer">
+            <p><b>Most likely: cooling fan blocked by product dust.</b></p>
+            <p>Four steps, about 40 minutes. Fixed the same way in Plant 2 on 14 March.</p>
+            <p class="src">Manual, section 7.3, page 142 · Past repair, Plant 2</p>
+          </div>
+          <div style="margin-top:14px">
+            <div class="rowline"><span><b>Service report</b><br><span class="src" style="margin:0">5 of 7 fields filled from the alarm and the voice note</span></span><span class="pill warn"><i></i>To confirm</span></div>
+            <div class="rowline"><span><b>Supervisor</b><br><span style="font-size:13px;color:var(--ui-muted)">Approves after the technician confirms</span></span><span class="pill"><i></i>Waiting</span></div>
+            <div class="rowline"><span><b>Repair memory</b><br><span style="font-size:13px;color:var(--ui-muted)">This case will be available to all plants</span></span><span class="pill ok"><i></i>On confirm</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WITH AND WITHOUT -->
+<section class="versus" aria-labelledby="vs-h">
+  <div class="wrap grid">
+    <h2 id="vs-h" data-r>With QualiK, and without</h2>
+    <p class="statement" data-r>Machines can be bought again. The experience of the people who fix them can't.</p>
+    <table>
+      <thead><tr><th scope="col">Without QualiK</th><th scope="col">With QualiK</th></tr></thead>
+      <tbody>
+        <tr data-r><td>Alarm</td><td>Alarm</td></tr>
+        <tr data-r><td>Searching for whoever knows</td><td>Procedure with source</td></tr>
+        <tr data-r><td>Field visit</td><td>Fixed on the first visit</td></tr>
+        <tr data-r><td>Report never written</td><td>Automatic service report</td></tr>
+        <tr data-r><td>Knowledge retires</td><td>Knowledge stays and grows</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FEATURES: the command list -->
+<section class="features" id="features" aria-labelledby="feat-h">
+  <div class="wrap">
+    <h2 id="feat-h" data-r>Everything QualiK does</h2>
+    <div class="cmd" data-ui id="cmd">
+      <label class="sr" for="cmd-q">Find a feature</label>
+      <input id="cmd-q" type="search" placeholder="Find a feature" autocomplete="off" data-r>
+      <ul>
+        <li><button class="cmd-row" aria-current="true"><span>From alarm to solution</span><span class="who">Technician</span><span class="more">When the PLC raises an alarm, the technician gets the procedure and similar past cases at once. The connection is read-only: QualiK never sends commands to the machine.</span></button></li>
+        <li><button class="cmd-row"><span>Guided diagnosis</span><span class="who">Technician</span><span class="more">Describe the fault in your own words and get the probable causes, each with its source. It also covers remote support between plants and to customers.</span></button></li>
+        <li><button class="cmd-row"><span>Automatic service reports</span><span class="who">Supervisor</span><span class="more">From a voice note, photos or the alarm itself, the report fills itself in: machine, fault, cause, action, spare parts, hours, outcome. The technician confirms, the supervisor approves.</span></button></li>
+        <li><button class="cmd-row"><span>Repair memory</span><span class="who">Every plant</span><span class="more">Every confirmed report improves the next answers, for every technician in every plant.</span></button></li>
+        <li><button class="cmd-row"><span>Tests and setup</span><span class="who">Engineering</span><span class="more">Parameters are saved and linked to the results they produced. Your engineers validate them.</span></button></li>
+        <li><button class="cmd-row"><span>Assisted compliance</span><span class="who">Managers</span><span class="more">Compliance and technical documentation is prepared by QualiK, then reviewed and signed by your own managers.</span></button></li>
+        <li><button class="cmd-row"><span>Expert knowledge capture</span><span class="who">Senior technicians</span><span class="more">Guided interviews with senior technicians are turned into validated procedures, before that experience retires.</span></button></li>
+        <li><button class="cmd-row"><span>The technician's language</span><span class="who">Plants abroad</span><span class="more">Answers arrive in the language of the technician who asks, whatever language the manual was written in.</span></button></li>
+        <li><button class="cmd-row"><span>Recurring faults</span><span class="who">Engineering</span><span class="more">Faults that keep coming back are flagged to engineering, with the cases behind them.</span></button></li>
+        <li><button class="cmd-row"><span>Premium service</span><span class="who">Machine builders</span><span class="more">Machine builders can offer QualiK to their own customers as a service on the machines they sell.</span></button></li>
+      </ul>
+      <p class="none" hidden>No feature matches. Try “report”, “alarm” or “language”.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE: input half, output half -->
+<section class="split" aria-labelledby="split-h">
+  <h2 class="sr" id="split-h">Said once. Written up.</h2>
+  <div class="in-half">
+    <div>
+      <label for="note" class="small">What the technician says. Edit it and watch the report change.</label>
+      <textarea id="note" spellcheck="false">Filler 2 stopped with a drive overtemperature alarm. The cooling fan was blocked with product dust. Cleaned the fan and replaced the cabinet filter. Spare parts: filter FK-220. 1.5 hours. Machine restarted and running.</textarea>
+    </div>
+    <span class="half-head" aria-hidden="true">Said once.</span>
+  </div>
+  <div class="out-half">
+    <div class="sheet-report" data-ui>
+      <div class="cd-head">
+        <div><p class="cd-title">Service report</p><p class="cd-meta">Drafted from a voice note</p></div>
+        <span class="pill warn" id="n-status"><i></i>Draft</span>
+      </div>
+      <dl class="report" id="n-report" aria-live="polite">
+        <dt>Machine</dt><dd data-k="machine">Filler 2</dd>
+        <dt>Fault</dt><dd data-k="fault">Filler 2 stopped with a drive overtemperature alarm</dd>
+        <dt>Cause</dt><dd data-k="cause">The cooling fan was blocked with product dust</dd>
+        <dt>Action</dt><dd data-k="action">Cleaned the fan and replaced the cabinet filter</dd>
+        <dt>Spare parts</dt><dd data-k="parts">Filter FK-220</dd>
+        <dt>Hours</dt><dd data-k="hours">1.5 h</dd>
+        <dt>Outcome</dt><dd data-k="outcome">Machine restarted and running</dd>
+      </dl>
+      <div class="cd-foot"><span class="src" id="n-note">All seven fields filled. The technician confirms, the supervisor approves.</span></div>
+    </div>
+    <span class="half-head" aria-hidden="true">Written up.</span>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="guarantees" id="guarantees" aria-labelledby="g-h">
+  <div class="wrap grid">
+    <figure data-r>
+      <img src="assets/codogno-1921.jpg" width="1273" height="1517" alt="1921 assembly drawing of a rice-whitening machine, signed by a machine shop in Codogno, Italy." loading="lazy" decoding="async">
+      <figcaption class="small">The source, a century ago: an assembly drawing from a machine shop in Codogno, 1921.</figcaption>
+    </figure>
+    <div class="g-body">
+      <h2 id="g-h" data-r>What stays in your hands</h2>
+      <ul>
+        <li data-r><b>Your data stays yours.</b><span>Manuals, drawings, reports and repairs belong to you. They are used to answer your technicians and nobody else's.</span></li>
+        <li data-r><b>Every answer cites its source.</b><span>The manual page, the drawing sheet or the past repair is always one tap away, so the technician can check before acting.</span></li>
+        <li data-r><b>The system suggests. People decide.</b><span>Technicians confirm, supervisors approve, engineers validate. Nothing enters the memory unconfirmed.</span></li>
+        <li data-r><b>Read-only, approved by your IT/OT team.</b><span>QualiK reads alarms from the plant. It never sends a command to a machine.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER: partnership -->
+<section class="letter" aria-labelledby="l-h">
+  <div class="wrap grid">
+    <h2 id="l-h" data-r>Let's work together</h2>
+    <div class="sheet" data-r>
+      <div class="portrait" role="img" aria-label="Portrait placeholder">K</div>
+      <p>We don't start with a rollout. We start with <mark>one machine and its most frequent alarms</mark>.</p>
+      <p>We connect in read-only mode, collect the manuals, the drawings and the old service reports, and sit down with the technicians who know that machine best.</p>
+      <p>Then we measure the results together: faults fixed on the first visit, hours the line was down, how quickly a new technician could work alone.</p>
+      <p>If the numbers move, we add the next machine.</p>
+      <p class="sign">[Name]</p>
+      <p class="small muted">Founder, QualiK</p>
+      <div class="tear">
+        <span class="small">Reply to this letter</span>
+        <a class="btn" href="#contact">Get in touch <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <figure class="pic" data-r>
+      <img src="assets/factory-hall-1934.jpg" width="1600" height="1133" alt="An empty factory hall in 1934, daylight falling across rows of machinery." loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<!-- THE OTHER PRODUCT -->
+<section class="tiles" aria-labelledby="t-h">
+  <div class="wrap">
+    <div class="row">
+      <div class="tile pic" aria-hidden="true"><img src="assets/boiler-room.jpg" width="1600" height="800" alt="" loading="lazy" decoding="async" style="object-position:30% 50%"></div>
+      <div class="tile main" data-r>
+        <h2 id="t-h">Run an installation business?</h2>
+        <p>QualiK Field turns your technicians' WhatsApp voice notes and photos into service reports and paperwork ready to sign. For HVAC installers, plumbers and electricians.</p>
+        <a class="btn" href="field.html">See QualiK Field <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="tile flat" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" aria-labelledby="c-h">
+  <div class="wrap grid">
+    <div class="prompt">
+      <h2 id="c-h" data-r><span>Start with one machine.</span><span>Tell us which one.</span></h2>
+      <p data-r>Write a few lines about the machine and the alarms that stop it most often. [Name] replies personally.</p>
+      <p class="small muted" data-r>We use your details only to reply to you.</p>
+    </div>
+    <form action="#" method="post" data-endpoint="NEXT_PUBLIC_FORM_ENDPOINT_QUALIK" novalidate>
+      <input type="hidden" name="product" value="qualik">
+      <label class="f"><span>Name</span><input name="name" autocomplete="name" required></label>
+      <label class="f"><span>Work email</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="f"><span>Company</span><input name="company" autocomplete="organization" required></label>
+      <label class="f"><span>Role</span><input name="role" autocomplete="organization-title"></label>
+      <label class="f wide"><span>Message</span><textarea name="message" placeholder="The machine, and what stops it most often"></textarea></label>
+      <label class="consent"><input type="checkbox" name="privacy" required><span>I have read the <a href="privacy.html">privacy notice</a> and agree to be contacted about this request.</span></label>
+      <div class="send">
+        <button class="btn btn-accent" type="submit">Send to [Name] <span class="arr" aria-hidden="true">→</span></button>
+        <p class="done small" role="status" hidden></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <div class="line">
+    <p>Technicians' know-how, available to every technician.</p>
+    <ul>
+      <li><a href="index.html">QualiK</a></li>
+      <li><a href="field.html">QualiK Field</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="privacy.html#terms">Terms</a></li>
+      <li><a href="privacy.html#legal">Legal notice</a></li>
+    </ul>
+    <p>© 2026 QualiK · <a href="privacy.html">Privacy</a></p>
+  </div>
+  <p class="credits small">Pictures: <a href="https://commons.wikimedia.org/wiki/File:Lathe_at_the_Hillside_Railway_Workshop_ATLIB_224446.png">“Lathe at the Hillside Railway Workshop”</a> by Albert Percy Godber, public domain; <a href="https://commons.wikimedia.org/wiki/File:1921-Allievi-Ettore-Off-Meccanica-Codogno.jpg">“1921 Allievi Ettore Off. Meccanica Codogno”</a>, uploaded by Albertomos, public domain; <a href="https://commons.wikimedia.org/wiki/File:The_hall_and_machinery_at_the_factory_of_Veljekset_%C3%85str%C3%B6m_Oy_1934_(JOKAKAL3B-3613).tif">“The hall and machinery at the factory of Veljekset Åström Oy”</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Boiler_room_%E2%80%93_Panorama_(Oliksiy_Yakovlyev_via_Poly_Haven).jpg">“Boiler room, panorama”</a> by Oliksiy Yakovlyev, CC0. All via Wikimedia Commons.</p>
+</footer>
+
+<script src="js/config.js" defer></script>
+<script src="js/site.js" defer></script>
+</body>
+</html>
